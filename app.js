@@ -33,8 +33,8 @@ app.use(
 if (!isProduction) {
     app.use(errorhandler())
 }
-
-mongoose.connect("mongodb://localhost:27017/begenuin-task", {
+const uri = process.env.MONGO_URI
+mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, function (err, db) {
