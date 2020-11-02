@@ -12,7 +12,7 @@ var isProduction = process.env.NODE_ENV === 'development'
 
 
 var app = express();
-
+require('dotenv').config();
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
@@ -33,7 +33,7 @@ app.use(
 if (!isProduction) {
     app.use(errorhandler())
 }
-const uri = process.env.MONGO_URI
+const uri = process.env.MONGODB_URI
 mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
